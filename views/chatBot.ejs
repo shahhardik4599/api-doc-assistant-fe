@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="/css/chatbot.css">
+</head>
+
+<body>
+    <div id="chatbot-widget">
+        <div id="chatbot-icon">Chat</div>
+        <div id="chatbot-popup">
+            <div class="chat-box" id="chat-box"></div>
+            <div class="input-and-button">
+                <textarea id="user-input" placeholder="Type your message..." rows="4"></textarea>
+                <button id="send-button" disabled>Send</button>
+            </div>
+            <div id="error-message" class="error-message"></div>
+        </div>
+    </div>
+    <script src="/js/chatbot.js"></script>
+</body>
+
+</html>
