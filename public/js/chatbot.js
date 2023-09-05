@@ -41,6 +41,13 @@ function initializeChatbot() {
         sendMessage();
     });
 
+    userInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault(); // Prevent the default form submission
+            sendMessage(); // Call sendMessage function when Enter is pressed
+        }
+    });
+
     // Validate user input and enable/disable the send button
     userInput.addEventListener("input", function () {
         const userMessage = userInput.value.trim();
@@ -99,10 +106,54 @@ function initializeChatbot() {
         }
     }
 
+    // function sendMessage() {
+    //     const userMessage = userInput.value.trim();
 
+    //     if (userMessage !== "") {
+    //         appendMessage("You", userMessage);
 
-    // Function to append messages and separator lines
-    // Function to append messages and separator lines
+    //         // Display the loader
+    //         const loader = document.createElement("div");
+    //         loader.className = "user-message-loader";
+    //         chatBox.appendChild(loader);
+
+    //         const apiUrl = `http://127.0.0.1:8000/api/web/suggestions?query=${userMessage}`;
+    //         console.log("apiUrl", apiUrl);
+
+    //         // Create an EventSource for streaming data
+    //         const eventSource = new EventSource(apiUrl);
+
+    //         // Handle incoming messages from the server
+    //         eventSource.addEventListener("message", (event) => {
+    //             // Hide the loader
+    //             chatBox.removeChild(loader);
+
+    //             // Parse the message data
+    //             const data = JSON.parse(event.data);
+
+    //             // Display the API response as a chatbot message
+    //             console.log(data);
+    //             appendMessage("ChatBot", data.message);
+    //         });
+
+    //         // Handle errors from the server
+    //         eventSource.addEventListener("error", (event) => {
+    //             console.error("Error fetching API:", event);
+
+    //             // Hide the loader in case of an error
+    //             chatBox.removeChild(loader);
+    //             appendMessage("ChatBot", "Sorry, there was an error.");
+
+    //             // Close the EventSource to stop streaming
+    //             eventSource.close();
+    //         });
+
+    //         userInput.value = "";
+    //         sendButton.disabled = true;
+    //         errorMessage.textContent = "";
+    //     }
+    // }
+
     function appendMessage(sender, message) {
         const messageDiv = document.createElement("div");
         messageDiv.className = sender === "You" ? "user-message" : "bot-message";

@@ -74,6 +74,11 @@ html {
     border-radius: 10px;
 }
 
+.chat-box .bot-message {
+    word-wrap: break-word;
+    /* Apply word wrapping to long lines */
+}
+
 .input-and-button {
     display: flex;
     justify-content: center;
