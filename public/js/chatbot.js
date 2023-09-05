@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+function initializeChatbot() {
     const chatContainer = document.getElementById("chatbot-widget");
     const chatBox = document.getElementById("chat-box");
     const userInput = document.getElementById("user-input");
@@ -123,6 +123,10 @@ document.addEventListener("DOMContentLoaded", function () {
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
+}
 
+// Add an event listener to run your chatbot when the page is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+    initializeChatbot();
 });
 
